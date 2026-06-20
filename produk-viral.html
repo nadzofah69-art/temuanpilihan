@@ -17,28 +17,55 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:
-radial-gradient(circle at top right,
-rgba(255,107,0,.25),
-transparent 250px),
-
-radial-gradient(circle at bottom left,
-rgba(255,140,66,.18),
-transparent 250px),
-
-linear-gradient(
-180deg,
-#ff6b00 0%,
-#ff8c42 18%,
-#f8f5f0 45%,
-#f8f5f0 100%
-);
-
+background:#f8f5f0;
 min-height:100vh;
 padding:20px;
-
-animation:fadeIn .8s ease;
+overflow-x:hidden;
+animation:fadeIn 1s ease;
 }
+
+/* ORNAMEN BACKGROUND */
+
+.bg1{
+position:fixed;
+width:300px;
+height:300px;
+background:#ff6b00;
+border-radius:50%;
+top:-100px;
+right:-100px;
+filter:blur(90px);
+opacity:.25;
+z-index:-1;
+}
+
+.bg2{
+position:fixed;
+width:250px;
+height:250px;
+background:#ffb347;
+border-radius:50%;
+bottom:-80px;
+left:-80px;
+filter:blur(90px);
+opacity:.25;
+z-index:-1;
+}
+
+.bg3{
+position:fixed;
+width:180px;
+height:180px;
+background:#ff8c42;
+border-radius:50%;
+top:45%;
+right:-50px;
+filter:blur(80px);
+opacity:.15;
+z-index:-1;
+}
+
+/* ANIMASI */
 
 @keyframes fadeIn{
 from{
@@ -56,36 +83,33 @@ max-width:500px;
 margin:auto;
 }
 
+/* TOMBOL KEMBALI */
+
 .back-btn{
 display:inline-block;
 margin-bottom:20px;
-color:white;
 text-decoration:none;
 font-weight:bold;
-font-size:15px;
+color:#ff6b00;
 }
 
+/* HEADER */
+
 .header{
-background:rgba(255,255,255,.92);
-
-backdrop-filter:blur(12px);
-
+background:white;
 padding:28px;
-
 border-radius:24px;
-
 text-align:center;
-
-margin-bottom:22px;
+margin-bottom:20px;
 
 box-shadow:
-0 15px 35px rgba(0,0,0,.08);
+0 10px 30px rgba(0,0,0,.08);
 }
 
 .header h1{
 font-size:32px;
-color:#222;
 margin-bottom:8px;
+color:#222;
 }
 
 .header p{
@@ -93,7 +117,10 @@ color:#666;
 line-height:1.5;
 }
 
+/* PRODUK */
+
 .product-card{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -113,29 +140,31 @@ color:#222;
 font-weight:600;
 
 box-shadow:
-0 8px 20px rgba(0,0,0,.06);
+0 6px 18px rgba(0,0,0,.06);
 
 transition:.25s;
 }
 
 .product-card:hover{
+
 transform:
-translateY(-3px)
-scale(1.01);
+translateY(-3px);
 
 box-shadow:
-0 15px 30px rgba(0,0,0,.12);
+0 12px 24px rgba(0,0,0,.10);
 }
 
-.product-name{
-font-size:16px;
+.product-number{
+color:#ff6b00;
+font-weight:700;
 }
 
 .arrow{
-font-size:22px;
-font-weight:bold;
+font-size:20px;
 color:#ff6b00;
 }
+
+/* FOOTER */
 
 .footer{
 text-align:center;
@@ -149,6 +178,10 @@ color:#777;
 </head>
 
 <body>
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="bg3"></div>
 
 <div class="container">
 
@@ -165,27 +198,42 @@ Klik nomor produk sesuai yang disebut di video.
 </div>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span class="product-name">No.1 - Lampu Tidur Estetik</span>
+<span>
+<span class="product-number">No.1</span>
+- Lampu Tidur Estetik
+</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span class="product-name">No.2 - Tumbler Premium</span>
+<span>
+<span class="product-number">No.2</span>
+- Tumbler Premium
+</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span class="product-name">No.3 - Rak Serbaguna Viral</span>
+<span>
+<span class="product-number">No.3</span>
+- Rak Serbaguna Viral
+</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span class="product-name">No.4 - Pengharum Mobil</span>
+<span>
+<span class="product-number">No.4</span>
+- Pengharum Mobil
+</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span class="product-name">No.5 - Organizer Multifungsi</span>
+<span>
+<span class="product-number">No.5</span>
+- Organizer Multifungsi
+</span>
 <span class="arrow">›</span>
 </a>
 
@@ -197,3 +245,4 @@ Temuan Pilihan © 2026
 
 </body>
 </html>
+
