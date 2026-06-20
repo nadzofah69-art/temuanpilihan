@@ -699,31 +699,37 @@ Temuan Pilihan © 2026
 
 <script>
 
-document.querySelectorAll("a").forEach(link => {
+/* Perbaiki halaman kosong saat kembali dari browser/mobile */
+window.addEventListener("pageshow", function () {
 
-link.addEventListener("click", function(e){
-
-const href = this.getAttribute("href");
-
-if(href && href !== "#"){
-
-e.preventDefault();
-
-document.body.style.opacity = "0";
-
-document.body.style.transform = "translateY(10px)";
-
-document.body.style.transition = ".35s ease";
-
-setTimeout(() => {
-
-window.location.href = href;
-
-}, 350);
-
-}
+    document.body.style.opacity = "1";
+    document.body.style.transform = "translateY(0)";
+    document.body.style.transition = "";
 
 });
+
+/* Animasi pindah halaman */
+document.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        const href = this.getAttribute("href");
+
+        if(href && href !== "#"){
+
+            e.preventDefault();
+
+            document.body.style.opacity = "0";
+            document.body.style.transform = "translateY(10px)";
+            document.body.style.transition = ".35s ease";
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 350);
+
+        }
+
+    });
 
 });
 
