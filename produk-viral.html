@@ -156,10 +156,6 @@ font-weight:700;
 
 color:#ff6b00;
 
-border:none;
-
-cursor:pointer;
-
 box-shadow:
 0 4px 10px rgba(0,0,0,.05);
 }
@@ -338,9 +334,9 @@ color:#777;
 
 <div class="container">
 
-<button onclick="goBack()" class="back">
+<a href="index.html" class="back">
 ← Kembali
-</button>
+</a>
 
 <div class="hero">
 
@@ -405,42 +401,31 @@ Temuan Pilihan © 2026
 
 <script>
 
-function goBack() {
+const searchInput =
+document.getElementById("searchInput");
 
-    window.location.href = "index.html";
+searchInput.addEventListener("keyup", function(){
 
+let keyword =
+this.value.toLowerCase();
+
+let products =
+document.querySelectorAll(".product-item");
+
+products.forEach(function(product){
+
+let text =
+product.innerText.toLowerCase();
+
+if(text.includes(keyword)){
+product.style.display = "flex";
+}else{
+product.style.display = "none";
 }
-
-window.addEventListener("pageshow", function () {
-
-    document.body.style.opacity = "1";
-    document.body.style.transform = "translateY(0)";
-    document.body.style.transition = "";
 
 });
 
-const searchInput = document.getElementById("searchInput");
-
-if (searchInput) {
-
-    searchInput.addEventListener("keyup", function(){
-
-        let keyword = this.value.toLowerCase();
-
-        document.querySelectorAll(".product-item").forEach(product => {
-
-            let text = product.innerText.toLowerCase();
-
-            product.style.display =
-                text.includes(keyword)
-                    ? "flex"
-                    : "none";
-
-        });
-
-    });
-
-}
+});
 
 </script>
 
