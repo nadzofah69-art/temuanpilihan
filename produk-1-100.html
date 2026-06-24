@@ -384,28 +384,52 @@ class="product product-item">
   
 </a>
 
-<a href="#" target="_blank" class="product product-item">
+<a
+id="produk-02"
+href="#"
+target="_blank"
+class="product product-item">
+  
 <div class="no">02</div>
 <div class="name">Tumbler Premium</div>
 <div class="arrow">›</div>
+  
 </a>
 
-<a href="#" target="_blank" class="product product-item">
+<a
+id="produk-03"
+href="#"
+target="_blank"
+class="product product-item">
+  
 <div class="no">03</div>
 <div class="name">Rak Serbaguna Viral</div>
 <div class="arrow">›</div>
+  
 </a>
 
-<a href="#" target="_blank" class="product product-item">
+<a
+id="produk-04"
+href="#"
+target="_blank"
+class="product product-item">
+  
 <div class="no">04</div>
 <div class="name">Pengharum Mobil</div>
 <div class="arrow">›</div>
+  
 </a>
 
-<a href="#" target="_blank" class="product product-item">
+<a
+id="produk-05"
+href="#"
+target="_blank"
+class="product product-item">
+  
 <div class="no">05</div>
 <div class="name">Organizer Multifungsi</div>
 <div class="arrow">›</div>
+  
 </a>
 
 <!-- TAMBAHKAN PRODUK 06-100 DI SINI -->
@@ -447,10 +471,13 @@ product.style.display = "none";
 const params =
 new URLSearchParams(window.location.search);
 
-const target =
+let target =
 params.get("produk");
 
 if(target){
+
+target =
+target.padStart(2,"0");
 
 const element =
 document.getElementById("produk-" + target);
