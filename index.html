@@ -320,6 +320,48 @@ font-size:12px;
 color:#888;
 }
 
+/* SEARCH RESULTS */
+
+#searchResults{
+margin-bottom:18px;
+}
+
+.search-result{
+
+display:block;
+
+text-align:left;
+
+padding:14px 18px;
+
+margin-bottom:8px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+color:#222;
+
+background:
+rgba(255,255,255,.5);
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 6px 15px rgba(0,0,0,.05);
+
+transition:.2s;
+}
+
+.search-result:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 10px 20px rgba(0,0,0,.08);
+
+}
+
 /* ANIMATION */
 
 @keyframes fadePage{
@@ -392,6 +434,7 @@ type="text"
 id="searchInput"
 class="search-box"
 placeholder="Cari nomor produk...">
+<div id="searchResults"></div>
 
 <a class="button" href="produk-1-100.html">
 <span>📦 Produk 1 - 100</span>
@@ -452,27 +495,77 @@ window.location.href=href;
 
 });
 
+const products = [
+
+{
+number:"01",
+name:"Lampu Tidur Estetik",
+page:"produk-1-100.html?produk=01"
+},
+
+{
+number:"02",
+name:"Tumbler Premium",
+page:"produk-1-100.html?produk=02"
+},
+
+{
+number:"03",
+name:"Rak Serbaguna Viral",
+page:"produk-1-100.html?produk=03"
+},
+
+{
+number:"04",
+name:"Pengharum Mobil",
+page:"produk-1-100.html?produk=04"
+},
+
+{
+number:"05",
+name:"Organizer Multifungsi",
+page:"produk-1-100.html?produk=05"
+}
+
+];
+
 const searchInput =
 document.getElementById("searchInput");
 
-searchInput.addEventListener("keyup", function(){
+const searchResults =
+document.getElementById("searchResults");
 
-let keyword =
-this.value.toLowerCase();
+searchInput.addEventListener("input", function(){
 
-let buttons =
-document.querySelectorAll(".button");
+const keyword =
+this.value.toLowerCase().trim();
 
-buttons.forEach(function(button){
+searchResults.innerHTML = "";
 
-let text =
-button.innerText.toLowerCase();
+if(keyword === "") return;
 
-if(text.includes(keyword)){
-button.style.display = "flex";
-}else{
-button.style.display = "none";
-}
+const results =
+products.filter(product =>
+
+product.number.includes(keyword) ||
+product.name.toLowerCase().includes(keyword)
+
+);
+
+results.forEach(product => {
+
+searchResults.innerHTML += `
+
+<a
+href="${product.page}"
+class="search-result">
+
+${product.number}
+${product.name}
+
+</a>
+
+`;
 
 });
 
