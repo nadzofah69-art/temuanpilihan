@@ -1,4 +1,4 @@
-const PRODUCTS = [
+window.PRODUCTS = [
   {
     number: "001",
     name: "Lampu Tidur Estetik",
